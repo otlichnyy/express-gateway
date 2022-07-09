@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: .
+      target: dev
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 4001:4001
+      - 9229:9229
+    command: ['npm', 'run', 'dev:debug']
+    volumes:
+      - /app/node_modules
+      - ./:/app
