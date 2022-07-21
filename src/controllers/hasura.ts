@@ -21,13 +21,8 @@ const hasuraProxyCall = async (req: Request, res: Response) => {
   const query = req.body.query as string;
   const variables = req.body.variables as Record<string, any>;
 
-  const { data, error } = await executeGraphQL(query, variables);
-
-  if (error) {
-    console.log(error);
-  }
-
-  res.json(data);
+  const response = await executeGraphQL(query, variables);
+  res.json(response);
 };
 
 export { executeGraphQL, hasuraProxyCall };
