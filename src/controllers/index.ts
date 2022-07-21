@@ -1,3 +1,4 @@
 import * as userController from './users';
+import * as hasuraProxyController from './hasura';
 
-export { userController };
+export { userController, hasuraProxyController };
