@@ -6,5 +6,6 @@ declare namespace NodeJS {
     API_URL: string;
     HASURA_GRAPHQL_URL: string;
     HASURA_ADMIN_SECRET: string;
+    HASURA_JWT_SECRET: string;
   }
 }

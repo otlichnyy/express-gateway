@@ -14,6 +14,9 @@ const graphqlProxyServer = async (req: Request, res: Response) => {
   await graphqlHTTP({
     schema,
     graphiql: true,
+    context: {
+      req,
+    },
   })(req, res);
 };
 

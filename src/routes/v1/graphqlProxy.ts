@@ -4,6 +4,6 @@ import graphqlProxyServer from '@src/utils/graphqlProxyServer';
 
 const router = express.Router();
 
-router.use('/', verifySession(), graphqlProxyServer);
+router.use('/', verifySession({ sessionRequired: false }), graphqlProxyServer);
 
 export default router;
