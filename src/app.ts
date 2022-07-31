@@ -9,7 +9,7 @@ import {
   errorHandler as stErrorHandler,
 } from 'supertokens-node/framework/express';
 import routes from '@src/routes/v1';
-import { ErrorMiddleware, rateLimiter } from '@src/middleware';
+import { ErrorHandler, rateLimiter } from '@src/middleware';
 import { successHandler, errorHandler } from '@src/config/morgan';
 import ApiError from '@src/utils/ApiError';
 import backendConfig, { appDomain } from '@src/config/supertokens';
@@ -62,10 +62,10 @@ app.use((req, res, next) => {
 // supertokens error handler
 app.use(stErrorHandler());
 
-// convert error to ApiError, if needed
-app.use(ErrorMiddleware.converter);
+// convert any other Error type to APIError
+app.use(ErrorHandler.errorConvertor);
 
 // handle error
-app.use(ErrorMiddleware.handler);
+app.use(ErrorHandler.customErrorHandler);
 
 export default app;

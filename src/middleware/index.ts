@@ -1,4 +1,4 @@
 import rateLimiter from './rateLimiter';
-import * as ErrorMiddleware from './error';
+import * as ErrorHandler from './handler';
 
-export { rateLimiter, ErrorMiddleware };
+export { rateLimiter, ErrorHandler };

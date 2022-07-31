@@ -4,5 +4,8 @@ declare namespace NodeJS {
     ST_CORE_API_KEY: string;
     APP_URL: string;
     API_URL: string;
+    HASURA_GRAPHQL_URL: string;
+    HASURA_ADMIN_SECRET: string;
+    HASURA_JWT_SECRET: string;
   }
 }

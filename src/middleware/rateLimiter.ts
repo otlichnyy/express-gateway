@@ -1,9 +1,21 @@
 import rateLimiter from 'express-rate-limit';
 
+const errorMessageResponse = {
+  error: [
+    {
+      extensions: {
+        code: 429,
+        path: 'express rate limiter',
+      },
+      message: 'maximum requests exceeded',
+    },
+  ],
+};
+
 const limiter = rateLimiter({
   windowMs: 15 * 60 * 1000,
   max: 10,
-  message: { message: 'too many request from this ip' },
+  message: errorMessageResponse,
   standardHeaders: true,
   legacyHeaders: false,
 });
