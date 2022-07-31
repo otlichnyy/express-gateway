@@ -9,7 +9,7 @@ interface ExecutorProps {
   context?: { req: SessionRequest };
 }
 
-const jwtClaims = (userId: string, exp?: Date) => ({
+export const jwtClaims = (userId: string, exp?: Date) => ({
   sub: userId,
   iat: Date.now() / 1000,
   exp: exp || Math.floor(Date.now() / 1000) + 24 * 60 * 60,
