@@ -1,7 +1,7 @@
 import express from 'express';
 import userRouter from './users';
 import hasuraProxyRouter from './hasura';
-import graphqlProxyRouter from './graphqlProxy';
+import graphqlProxyRouter from '@src/utils/graphqlProxyRoute';
 
 const router = express.Router();
 

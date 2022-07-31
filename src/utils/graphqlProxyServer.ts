@@ -2,9 +2,10 @@ import { wrapSchema, introspectSchema } from '@graphql-tools/wrap';
 import { Request, Response } from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import applicationProxyResolver from './applicationProxyResolver';
+import catchAsync from './catchAsync';
 import executor from './executor';
 
-const graphqlProxyServer = async (req: Request, res: Response) => {
+const graphqlProxyServer = catchAsync(async (req: Request, res: Response) => {
   const schema = wrapSchema({
     // eslint-disable-next-line @typescript-eslint/await-thenable, @typescript-eslint/no-unsafe-argument
     schema: await introspectSchema(executor as any),
@@ -18,6 +19,6 @@ const graphqlProxyServer = async (req: Request, res: Response) => {
       req,
     },
   })(req, res);
-};
+});
 
 export default graphqlProxyServer;
