@@ -22,6 +22,7 @@ const exitHandler = () => {
 };
 
 const unexpectedErrorHandler = (error: unknown) => {
+  logger.warn('💀 Shutting down due to unhandled error 💀');
   logger.error(error);
   exitHandler();
 };
