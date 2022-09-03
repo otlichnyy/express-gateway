@@ -11,6 +11,14 @@ The Relay which allows to model solution easily with hasura, enable few critical
 - REST proxy to worker instance
 - Logging for Graphql server, query and mutation
 
+## Development Workflow
+
+- git clone the git repository
+- select `Remote-container rebuild and open in container` for first time, then chose `reopen in container`
+- code, push, pr, ci, merge
+- close remote connection
+- remove containers `docker rm $(docker ps -aq)`
+
 ## License
 
 MIT
